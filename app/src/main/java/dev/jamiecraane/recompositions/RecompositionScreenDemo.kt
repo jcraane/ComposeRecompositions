@@ -17,7 +17,7 @@ fun UsersScreen() {
             UsersScreenState(
                 "Users",
                 "This is the users screen",
-                (1..40).toList().map { Person(it, "Firstname Lastname $it") },
+                PersonCollection((1..40).toList().map { Person(it, "Firstname Lastname $it") }),
             )
         )
     }
@@ -30,7 +30,7 @@ fun UsersScreen() {
             Text("Change title")
         }
 
-        PersonList(usersScreenState.persons)
+        PersonList(usersScreenState.personCollection)
     }
 }
 
@@ -45,9 +45,9 @@ private fun Description(value: String) {
 }
 
 @Composable
-private fun PersonList(persons: List<Person>) {
+private fun PersonList(persons: PersonCollection) {
     LazyColumn(modifier = Modifier.fillMaxWidth()) {
-        items(persons, key = { it.id }) { person ->
+        items(persons.persons, key = { it.id }) { person ->
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -65,7 +65,10 @@ private fun PersonList(persons: List<Person>) {
 data class UsersScreenState(
     val title: String,
     val body: String,
-    val persons: List<Person>,
+    val personCollection: PersonCollection,
 )
+
+@Immutable
+data class PersonCollection(val persons: List<Person>)
 
 data class Person(val id: Int, val name: String)
