@@ -15,16 +15,17 @@ fun UsersScreen(modifier: Modifier = Modifier) {
     var usersScreenState by remember {
         mutableStateOf(
             UsersScreenState(
-                "Persons",
-                "Description",
-                (1..40).toList().map { Person(it, "Voornaam Achternaam $it") },
+                "Users",
+                "This is the users screen",
+                (1..40).toList().map { Person(it, "Firstname Lastname $it") },
             )
         )
     }
 
-    Column() {
+    Column(modifier = modifier) {
         Title(usersScreenState.title)
         Description(usersScreenState.description)
+
         Button(onClick = { usersScreenState = usersScreenState.copy(title = Random.nextInt().toString()) }) {
             Text("Change title")
         }
