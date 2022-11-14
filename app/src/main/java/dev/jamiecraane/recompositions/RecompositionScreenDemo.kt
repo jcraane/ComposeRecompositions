@@ -11,26 +11,37 @@ import androidx.compose.ui.unit.dp
 import kotlin.random.Random
 
 @Composable
-fun PersonListScreen() {
-    var personScreenState by remember {
+fun UsersScreen() {
+    var usersScreenState by remember {
         mutableStateOf(
-            PersonScreenState(
-                "Persons",
-                "Description",
-                (1..40).toList().map { Person(it, "Voornaam Achternaam $it") },
+            UsersScreenState(
+                "Users",
+                "This is the users screen",
+                (1..40).toList().map { Person(it, "Firstname Lastname $it") },
             )
         )
     }
 
     Column() {
-        Text(personScreenState.title)
-        Text(personScreenState.description)
-        Button(onClick = { personScreenState = personScreenState.copy(title = Random.nextInt().toString()) }) {
-            Text("Update title")
+        Title(usersScreenState.title)
+        Description(usersScreenState.body)
+
+        Button(onClick = { usersScreenState = usersScreenState.copy(title = Random.nextInt().toString()) }) {
+            Text("Change title")
         }
 
-        PersonList(personScreenState.persons)
+        PersonList(usersScreenState.persons)
     }
+}
+
+@Composable
+private fun Title(value: String) {
+    Text(value)
+}
+
+@Composable
+private fun Description(value: String) {
+    Text(value)
 }
 
 @Composable
@@ -51,9 +62,9 @@ private fun PersonList(persons: List<Person>) {
     }
 }
 
-data class PersonScreenState(
+data class UsersScreenState(
     val title: String,
-    val description: String,
+    val body: String,
     val persons: List<Person>,
 )
 
