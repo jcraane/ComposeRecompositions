@@ -12,7 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import dev.jamiecraane.recompositions.ui.theme.RecompositionsTheme
 
 @Composable
-fun CounterScreen() {
+fun CounterScreen(modifier: Modifier = Modifier) {
     var firstCount by remember {
         mutableStateOf(0)
     }
@@ -30,7 +30,7 @@ fun CounterScreen() {
     }
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {

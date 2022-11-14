@@ -11,26 +11,25 @@ import androidx.compose.ui.unit.dp
 import kotlin.random.Random
 
 @Composable
-fun UsersScreen() {
+fun UsersScreen(modifier: Modifier = Modifier) {
     var usersScreenState by remember {
         mutableStateOf(
             UsersScreenState(
-                "Users",
-                "This is the users screen",
-                PersonCollection((1..40).toList().map { Person(it, "Firstname Lastname $it") }),
+                "Persons",
+                "Description",
+                (1..40).toList().map { Person(it, "Voornaam Achternaam $it") },
             )
         )
     }
 
     Column() {
         Title(usersScreenState.title)
-        Description(usersScreenState.body)
-
+        Description(usersScreenState.description)
         Button(onClick = { usersScreenState = usersScreenState.copy(title = Random.nextInt().toString()) }) {
             Text("Change title")
         }
 
-        PersonList(usersScreenState.personCollection)
+        PersonList(usersScreenState.persons)
     }
 }
 
@@ -45,9 +44,9 @@ private fun Description(value: String) {
 }
 
 @Composable
-private fun PersonList(persons: PersonCollection) {
+private fun PersonList(persons: List<Person>) {
     LazyColumn(modifier = Modifier.fillMaxWidth()) {
-        items(persons.persons, key = { it.id }) { person ->
+        items(persons, key = { it.id }) { person ->
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -64,11 +63,8 @@ private fun PersonList(persons: PersonCollection) {
 
 data class UsersScreenState(
     val title: String,
-    val body: String,
-    val personCollection: PersonCollection,
+    val description: String,
+    val persons: List<Person>,
 )
-
-@Immutable
-data class PersonCollection(val persons: List<Person>)
 
 data class Person(val id: Int, val name: String)

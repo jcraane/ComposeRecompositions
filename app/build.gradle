@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id("io.gitlab.arturbosch.detekt").version("1.21.0")
 }
 
 android {
@@ -60,4 +61,15 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
+
+    detektPlugins("com.twitter.compose.rules:detekt:0.0.22")
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.21.0")
+}
+
+detekt {
+    buildUponDefaultConfig = true // preconfigure defaults
+    allRules = true // activate all available (even unstable) rules.
+    autoCorrect = true
+    config = files("$rootDir/config/detekt.yml") // point to your custom config defining rules to run, overwriting default behavior
+    baseline = file("$rootDir/config/baseline.xml") // a way of suppressing issues before introducing detekt
 }
