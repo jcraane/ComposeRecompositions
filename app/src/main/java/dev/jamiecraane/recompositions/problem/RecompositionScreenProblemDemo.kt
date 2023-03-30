@@ -14,7 +14,7 @@ import kotlin.random.Random
 fun RecompositionsProblemScreen(modifier: Modifier = Modifier) {
     var usersScreenState by remember {
         mutableStateOf(
-            UsersScreenState(
+            UsersScreenStateProblem(
                 "Users",
                 "This is the users screen",
                 (1..40).toList().map { Person(it, "Firstname Lastname $it") },
@@ -62,13 +62,10 @@ private fun PersonList(persons: List<Person>) {
     }
 }
 
-private data class UsersScreenState(
+data class UsersScreenStateProblem(
     val title: String,
     val description: String,
     val persons: List<Person>,
 )
 
-@Immutable
-private data class PersonCollection(val persons: List<Person>)
-
-private data class Person(val id: Int, val name: String)
+data class Person(val id: Int, val name: String)

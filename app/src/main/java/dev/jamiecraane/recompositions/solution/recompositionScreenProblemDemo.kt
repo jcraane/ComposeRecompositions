@@ -8,13 +8,14 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import dev.jamiecraane.recompositions.problem.Person
 import kotlin.random.Random
 
 @Composable
 fun RecompositionsSolutionsScreen(modifier: Modifier = Modifier) {
     var usersScreenState by remember {
         mutableStateOf(
-            UsersScreenState(
+            UsersScreenStateSolution(
                 "Users",
                 "This is the users screen",
                 PersonCollection((1..40).toList().map { Person(it, "Firstname Lastname $it") }),
@@ -62,13 +63,12 @@ private fun PersonList(persons: PersonCollection) {
     }
 }
 
-private data class UsersScreenState(
+data class UsersScreenStateSolution(
     val title: String,
     val description: String,
     val personCollection: PersonCollection,
 )
 
 @Immutable
-private data class PersonCollection(val persons: List<Person>)
+data class PersonCollection(val persons: List<Person>)
 
-private data class Person(val id: Int, val name: String)
