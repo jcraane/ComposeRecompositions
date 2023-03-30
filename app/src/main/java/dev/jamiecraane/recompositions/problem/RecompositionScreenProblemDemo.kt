@@ -1,4 +1,4 @@
-package dev.jamiecraane.recompositions
+package dev.jamiecraane.recompositions.problem
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -11,13 +11,13 @@ import androidx.compose.ui.unit.dp
 import kotlin.random.Random
 
 @Composable
-fun UsersScreen(modifier: Modifier = Modifier) {
+fun RecompositionsProblemScreen(modifier: Modifier = Modifier) {
     var usersScreenState by remember {
         mutableStateOf(
             UsersScreenState(
                 "Users",
                 "This is the users screen",
-                PersonCollection((1..40).toList().map { Person(it, "Firstname Lastname $it") }),
+                (1..40).toList().map { Person(it, "Firstname Lastname $it") },
             )
         )
     }
@@ -30,7 +30,7 @@ fun UsersScreen(modifier: Modifier = Modifier) {
             Text("Change title")
         }
 
-        PersonList(usersScreenState.personCollection)
+        PersonList(usersScreenState.persons)
     }
 }
 
@@ -45,9 +45,9 @@ private fun Description(value: String) {
 }
 
 @Composable
-private fun PersonList(persons: PersonCollection) {
+private fun PersonList(persons: List<Person>) {
     LazyColumn(modifier = Modifier.fillMaxWidth()) {
-        items(persons.persons, key = { it.id }) { person ->
+        items(persons, key = { it.id }) { person ->
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -62,13 +62,13 @@ private fun PersonList(persons: PersonCollection) {
     }
 }
 
-data class UsersScreenState(
+private data class UsersScreenState(
     val title: String,
     val description: String,
-    val personCollection: PersonCollection,
+    val persons: List<Person>,
 )
 
 @Immutable
-data class PersonCollection(val persons: List<Person>)
+private data class PersonCollection(val persons: List<Person>)
 
-data class Person(val id: Int, val name: String)
+private data class Person(val id: Int, val name: String)

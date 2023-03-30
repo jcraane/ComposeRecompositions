@@ -1,4 +1,4 @@
-package dev.jamiecraane.recompositions.ui.theme
+package dev.jamiecraane.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

@@ -9,7 +9,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import dev.jamiecraane.recompositions.ui.theme.RecompositionsTheme
+import dev.jamiecraane.ui.theme.RecompositionsTheme
 
 @Composable
 fun CounterScreen(modifier: Modifier = Modifier) {

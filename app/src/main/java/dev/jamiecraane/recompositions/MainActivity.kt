@@ -18,7 +18,9 @@ import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import dev.jamiecraane.recompositions.ui.theme.RecompositionsTheme
+import dev.jamiecraane.recompositions.problem.RecompositionsProblemScreen
+import dev.jamiecraane.recompositions.solution.RecompositionsSolutionsScreen
+import dev.jamiecraane.ui.theme.RecompositionsTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,8 +43,9 @@ class MainActivity : ComponentActivity() {
                                 currentScreen = screenToShow
                             }
                         }
-                        Screens.RECOMPOSITION -> UsersScreen()
+                        Screens.RECOMPOSITION_PROBLEM -> RecompositionsProblemScreen()
                         Screens.DERIVED_STATE_OF -> CounterScreen()
+                        Screens.RECOMPOSITION_SOLUTION -> RecompositionsSolutionsScreen()
                     }
                 }
             }
@@ -99,7 +102,8 @@ private fun BackPressHandler(
 
 enum class Screens(val label: String) {
     SCREEN_LIST("Screen list"),
-    RECOMPOSITION("Demo - Recompositions"),
+    RECOMPOSITION_PROBLEM("Demo - Recompositions Problem"),
+    RECOMPOSITION_SOLUTION("Demo - Recompositions Solution"),
     DERIVED_STATE_OF("Demo - derivedStateOf");
 
     companion object {
