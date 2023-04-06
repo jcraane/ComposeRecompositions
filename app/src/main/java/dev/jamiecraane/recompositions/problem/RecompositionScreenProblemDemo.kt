@@ -46,8 +46,10 @@ private fun Description(value: String) {
 
 @Composable
 private fun PersonList(persons: List<Person>) {
+    println("debug:: Compose PersonList")
     LazyColumn(modifier = Modifier.fillMaxWidth()) {
         items(persons, key = { it.id }) { person ->
+            println("debug:: Compose Items")
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
