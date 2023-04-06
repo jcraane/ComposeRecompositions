@@ -18,6 +18,8 @@ import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import dev.jamiecraane.lazylist.problem.LazyListGotcha
+import dev.jamiecraane.lazylist.solution.LazyListSolution
 import dev.jamiecraane.recompositions.problem.RecompositionsProblemScreen
 import dev.jamiecraane.recompositions.solution.RecompositionsSolutionsScreen
 import dev.jamiecraane.ui.theme.RecompositionsTheme
@@ -46,6 +48,8 @@ class MainActivity : ComponentActivity() {
                         Screens.RECOMPOSITION_PROBLEM -> RecompositionsProblemScreen()
                         Screens.DERIVED_STATE_OF -> CounterScreen()
                         Screens.RECOMPOSITION_SOLUTION -> RecompositionsSolutionsScreen()
+                        Screens.LAZYLIST_KEY_PROBLEM -> LazyListGotcha()
+                        Screens.LAZYLIST_KEY_SOLUTION -> LazyListSolution()
                     }
                 }
             }
@@ -104,7 +108,9 @@ enum class Screens(val label: String) {
     SCREEN_LIST("Screen list"),
     RECOMPOSITION_PROBLEM("Demo - Recompositions Problem"),
     RECOMPOSITION_SOLUTION("Demo - Recompositions Solution"),
-    DERIVED_STATE_OF("Demo - derivedStateOf");
+    LAZYLIST_KEY_PROBLEM("Demo - LazyList Gotcha"),
+    DERIVED_STATE_OF("Demo - derivedStateOf"),
+    LAZYLIST_KEY_SOLUTION("Demo - LazyList Solution");
 
     companion object {
         val navigatableScreens = values().toList() - SCREEN_LIST
