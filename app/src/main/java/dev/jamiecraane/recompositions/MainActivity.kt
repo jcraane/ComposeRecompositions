@@ -46,10 +46,12 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                         Screens.RECOMPOSITION_PROBLEM -> RecompositionsProblemScreen()
-                        Screens.DERIVED_STATE_OF -> CounterScreen()
                         Screens.RECOMPOSITION_SOLUTION -> RecompositionsSolutionsScreen()
                         Screens.LAZYLIST_KEY_PROBLEM -> LazyListGotcha()
                         Screens.LAZYLIST_KEY_SOLUTION -> LazyListSolution()
+                        Screens.WITH_DERIVED_STATE_OF -> WithDerivedStateOf()
+                        Screens.WITHOUT_DERIVED_STATE_OF -> WithoutDerivedStateOf()
+                        else -> {}
                     }
                 }
             }
@@ -110,7 +112,9 @@ enum class Screens(val label: String) {
     RECOMPOSITION_SOLUTION("Demo - Recompositions Solution"),
     LAZYLIST_KEY_PROBLEM("Demo - LazyList Gotcha"),
     DERIVED_STATE_OF("Demo - derivedStateOf"),
-    LAZYLIST_KEY_SOLUTION("Demo - LazyList Solution");
+    LAZYLIST_KEY_SOLUTION("Demo - LazyList Solution"),
+    WITHOUT_DERIVED_STATE_OF("Demo - without derivedStateOf"),
+    WITH_DERIVED_STATE_OF("Demo - with derivedStateOf");
 
     companion object {
         val navigatableScreens = values().toList() - SCREEN_LIST
