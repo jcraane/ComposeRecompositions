@@ -23,6 +23,9 @@ import dev.jamiecraane.lazylist.solution.LazyListSolution
 import dev.jamiecraane.recompositions.problem.RecompositionsProblemScreen
 import dev.jamiecraane.recompositions.solution.RecompositionsSolutionsScreen
 import dev.jamiecraane.ui.theme.RecompositionsTheme
+import dev.jamiecraane.unstablelambdas.problem.UnstableLambdasMethodRefProblem
+import dev.jamiecraane.unstablelambdas.solution.UnstableLambdasMethodReferenceSolution
+import dev.jamiecraane.unstablelambdas.solution.UnstableLambdasRememberedLambdaSolution
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +54,9 @@ class MainActivity : ComponentActivity() {
                         Screens.LAZYLIST_KEY_SOLUTION -> LazyListSolution()
                         Screens.WITH_DERIVED_STATE_OF -> WithDerivedStateOf()
                         Screens.WITHOUT_DERIVED_STATE_OF -> WithoutDerivedStateOf()
+                        Screens.UNSTABLE_LAMBDAS_PROBLEM -> UnstableLambdasMethodRefProblem()
+                        Screens.UNSTABLE_LAMBDAS_METHOD_REF_SOLUTION -> UnstableLambdasMethodReferenceSolution()
+                        Screens.UNSTABLE_LAMBDA_REMEMBER_SOLUTION -> UnstableLambdasRememberedLambdaSolution()
                         else -> {}
                     }
                 }
@@ -114,7 +120,10 @@ enum class Screens(val label: String) {
     DERIVED_STATE_OF("Demo - derivedStateOf"),
     LAZYLIST_KEY_SOLUTION("Demo - LazyList Solution"),
     WITHOUT_DERIVED_STATE_OF("Demo - without derivedStateOf"),
-    WITH_DERIVED_STATE_OF("Demo - with derivedStateOf");
+    WITH_DERIVED_STATE_OF("Demo - with derivedStateOf"),
+    UNSTABLE_LAMBDAS_PROBLEM("Demo - Unstable Lambdas Problem"),
+    UNSTABLE_LAMBDAS_METHOD_REF_SOLUTION("Demo - Unstable Lambdas Solution"),
+    UNSTABLE_LAMBDA_REMEMBER_SOLUTION("Demo - Unstable Lambdas remember Solution");
 
     companion object {
         val navigatableScreens = values().toList() - SCREEN_LIST

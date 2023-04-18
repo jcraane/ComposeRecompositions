@@ -43,7 +43,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.4.4'
+        kotlinCompilerExtensionVersion '1.4.5'
     }
     packagingOptions {
         resources {
@@ -67,6 +67,9 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-compose:$lifecycle_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5"
 
     detektPlugins("com.twitter.compose.rules:detekt:0.0.26")
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.22.0")
