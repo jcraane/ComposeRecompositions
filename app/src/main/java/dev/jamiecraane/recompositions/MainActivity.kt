@@ -18,6 +18,7 @@ import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import dev.jamiecraane.basicconcepts.BasicConcepts
 import dev.jamiecraane.lazylist.problem.LazyListGotcha
 import dev.jamiecraane.lazylist.solution.LazyListSolution
 import dev.jamiecraane.recompositions.problem.RecompositionsProblemScreen
@@ -42,12 +43,14 @@ class MainActivity : ComponentActivity() {
                         currentScreen = Screens.SCREEN_LIST
                     })
 
+//                    todo add a simple used to show concepts in introduction
                     when (currentScreen) {
                         Screens.SCREEN_LIST -> {
                             ScreenList { screenToShow ->
                                 currentScreen = screenToShow
                             }
                         }
+                        Screens.BASIC_CONCEPTS -> BasicConcepts()
                         Screens.RECOMPOSITION_PROBLEM -> RecompositionsProblemScreen()
                         Screens.RECOMPOSITION_SOLUTION -> RecompositionsSolutionsScreen()
                         Screens.LAZYLIST_KEY_PROBLEM -> LazyListGotcha()
@@ -114,6 +117,7 @@ private fun BackPressHandler(
 
 enum class Screens(val label: String) {
     SCREEN_LIST("Screen list"),
+    BASIC_CONCEPTS("Basic concepts"),
     RECOMPOSITION_PROBLEM("Demo - Recompositions Problem"),
     RECOMPOSITION_SOLUTION("Demo - Recompositions Solution"),
     LAZYLIST_KEY_PROBLEM("Demo - LazyList Gotcha"),
