@@ -23,6 +23,7 @@ import dev.jamiecraane.lazylist.problem.LazyListGotcha
 import dev.jamiecraane.lazylist.solution.LazyListSolution
 import dev.jamiecraane.recompositions.problem.RecompositionsProblemScreen
 import dev.jamiecraane.recompositions.solution.RecompositionsSolutionsScreen
+import dev.jamiecraane.recompositions.solution.RecompositionsSolutionsScreen2
 import dev.jamiecraane.ui.theme.RecompositionsTheme
 import dev.jamiecraane.unstablelambdas.problem.UnstableLambdasMethodRefProblem
 import dev.jamiecraane.unstablelambdas.solution.UnstableLambdasMethodReferenceSolution
@@ -43,7 +44,6 @@ class MainActivity : ComponentActivity() {
                         currentScreen = Screens.SCREEN_LIST
                     })
 
-//                    todo add a simple used to show concepts in introduction
                     when (currentScreen) {
                         Screens.SCREEN_LIST -> {
                             ScreenList { screenToShow ->
@@ -53,6 +53,7 @@ class MainActivity : ComponentActivity() {
                         Screens.BASIC_CONCEPTS -> BasicConcepts()
                         Screens.RECOMPOSITION_PROBLEM -> RecompositionsProblemScreen()
                         Screens.RECOMPOSITION_SOLUTION -> RecompositionsSolutionsScreen()
+                        Screens.RECOMPOSITION_SOLUTION_2 -> RecompositionsSolutionsScreen2()
                         Screens.LAZYLIST_KEY_PROBLEM -> LazyListGotcha()
                         Screens.LAZYLIST_KEY_SOLUTION -> LazyListSolution()
                         Screens.WITH_DERIVED_STATE_OF -> WithDerivedStateOf()
@@ -120,8 +121,8 @@ enum class Screens(val label: String) {
     BASIC_CONCEPTS("Basic concepts"),
     RECOMPOSITION_PROBLEM("Demo - Recompositions Problem"),
     RECOMPOSITION_SOLUTION("Demo - Recompositions Solution"),
+    RECOMPOSITION_SOLUTION_2("Demo - Recompositions Solution 2"),
     LAZYLIST_KEY_PROBLEM("Demo - LazyList Gotcha"),
-    DERIVED_STATE_OF("Demo - derivedStateOf"),
     LAZYLIST_KEY_SOLUTION("Demo - LazyList Solution"),
     WITHOUT_DERIVED_STATE_OF("Demo - without derivedStateOf"),
     WITH_DERIVED_STATE_OF("Demo - with derivedStateOf"),

@@ -9,16 +9,18 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import dev.jamiecraane.recompositions.problem.Person
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.toImmutableList
 import kotlin.random.Random
 
 @Composable
-fun RecompositionsSolutionsScreen(modifier: Modifier = Modifier) {
+fun RecompositionsSolutionsScreen2(modifier: Modifier = Modifier) {
     var usersScreenState by remember {
         mutableStateOf(
-            UsersScreenStateSolution(
+            UsersScreenStateSolution2(
                 "Users",
                 "This is the users screen",
-                PersonCollection((1..40).toList().map { Person(it, "Firstname Lastname $it") }),
+                (1..40).toList().map { Person(it, "Firstname Lastname $it") }.toImmutableList(),
             )
         )
     }
@@ -46,10 +48,10 @@ private fun Description(value: String) {
 }
 
 @Composable
-private fun PersonList(persons: PersonCollection) {
+private fun PersonList(persons: ImmutableList<Person>) {
     println("debug:: Compose PersonList")
     LazyColumn(modifier = Modifier.fillMaxWidth()) {
-        items(persons.persons, key = { it.id }) { person ->
+        items(persons, key = { it.id }) { person ->
             println("debug:: Compose Items")
             Column(
                 modifier = Modifier
@@ -65,12 +67,8 @@ private fun PersonList(persons: PersonCollection) {
     }
 }
 
-private data class UsersScreenStateSolution(
+private data class UsersScreenStateSolution2(
     val title: String,
     val description: String,
-    val personCollection: PersonCollection,
+    val personCollection: ImmutableList<Person>,
 )
-
-@Immutable
-private data class PersonCollection(val persons: List<Person>)
-
