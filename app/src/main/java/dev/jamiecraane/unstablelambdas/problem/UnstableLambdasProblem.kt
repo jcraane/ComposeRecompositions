@@ -71,7 +71,7 @@ fun RandomGreeting(
 
 @Composable
 fun Greeting(greeting: String, onClick: () -> Unit) {
-    println("Recompose Greeting: $greeting")
+    println("Recompose Greeting: $greeting, onclick: ${onClick.hashCode()}")
     Text(
         modifier = Modifier.clickable(
             onClick = onClick,
