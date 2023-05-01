@@ -10,11 +10,6 @@ import dev.jamiecraane.unstablelambdas.problem.RandomGreeting
 
 @Composable
 fun UnstableLambdasMethodReferenceSolution() {
-    Test()
-}
-
-@Composable
-private fun Test() {
     println("Recompose UnstableLambdasMethodRefProblem")
     val viewModel: UnstableLambdaViewModel = viewModel()
 

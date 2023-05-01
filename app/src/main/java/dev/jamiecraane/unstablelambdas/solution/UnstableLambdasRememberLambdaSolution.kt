@@ -11,11 +11,6 @@ import dev.jamiecraane.unstablelambdas.problem.RandomGreeting
 
 @Composable
 fun UnstableLambdasRememberedLambdaSolution() {
-    Test()
-}
-
-@Composable
-private fun Test() {
     println("Recompose UnstableLambdasMethodRefProblem")
     val viewModel: UnstableLambdaViewModel = viewModel()
 
@@ -27,4 +22,5 @@ private fun Test() {
     RandomGreeting(greetings, viewModel::addGreeting, remember {
         { viewModel.onGreetingClicked() }
     })
+
 }

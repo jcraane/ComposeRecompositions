@@ -127,7 +127,7 @@ enum class Screens(val label: String) {
     WITHOUT_DERIVED_STATE_OF("Demo - without derivedStateOf"),
     WITH_DERIVED_STATE_OF("Demo - with derivedStateOf"),
     UNSTABLE_LAMBDAS_PROBLEM("Demo - Unstable Lambdas Problem"),
-    UNSTABLE_LAMBDAS_METHOD_REF_SOLUTION("Demo - Unstable Lambdas Solution"),
+    UNSTABLE_LAMBDAS_METHOD_REF_SOLUTION("Demo - Unstable Lambdas Method ref Solution"),
     UNSTABLE_LAMBDA_REMEMBER_SOLUTION("Demo - Unstable Lambdas remember Solution");
 
     companion object {

@@ -19,7 +19,6 @@ fun WithDerivedStateOf(modifier: Modifier = Modifier) {
 
     val scope = rememberCoroutineScope()
     val lazyListState = rememberLazyListState()
-//    todo what is the difference between this and remember with key?
     val scrollButtonEnabled by remember {
         derivedStateOf {
             lazyListState.firstVisibleItemIndex > 1
