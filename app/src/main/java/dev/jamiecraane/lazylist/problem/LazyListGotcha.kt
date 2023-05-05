@@ -27,7 +27,6 @@ data class ScreenState(
         TodoItem("1", "Buy groceries for the week"),
         TodoItem("2", "Schedule annual physical exam"),
         TodoItem("3", "Finish project report"),
-        TodoItem("4", "Call Mom"),
         TodoItem("5", "Pay rent"),
         TodoItem("6", "Go for a run"),
         TodoItem("7", "Read chapter 3 of book"),

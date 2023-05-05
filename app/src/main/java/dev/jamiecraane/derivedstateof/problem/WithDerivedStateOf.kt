@@ -9,6 +9,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import dev.jamiecraane.recompositions.solution.Rating
 import kotlinx.coroutines.launch
 
 @Composable
@@ -25,19 +26,24 @@ fun WithDerivedStateOf(modifier: Modifier = Modifier) {
         }
     }
 
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = Modifier.fillMaxSize().padding(horizontal = 16.dp).padding(top = 8.dp)) {
         LazyColumn(
             modifier = Modifier.padding(top = 52.dp),
             state = lazyListState
         ) {
             items(screenState.movies) { movie ->
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                    verticalAlignment = Alignment.CenterVertically
+                Column(
+                    modifier = Modifier.fillMaxWidth(),
                 ) {
-                    Text(text = movie.name, modifier = Modifier.weight(1f))
+                    Divider()
+                    Spacer(Modifier.height(4.dp))
+
+                    Text(
+                        text = movie.title,
+                        style = MaterialTheme.typography.h6,
+                    )
+                    Rating(movie.rating)
+                    Spacer(Modifier.height(4.dp))
                 }
             }
 
