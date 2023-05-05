@@ -65,12 +65,12 @@ private fun PersonList(persons: PersonCollection) {
     }
 }
 
-private data class UsersScreenStateSolution(
+data class UsersScreenStateSolution(
     val title: String,
     val description: String,
     val personCollection: PersonCollection,
 )
 
 @Immutable
-private data class PersonCollection(val persons: List<Person>)
+data class PersonCollection(val persons: List<Person>)
 
