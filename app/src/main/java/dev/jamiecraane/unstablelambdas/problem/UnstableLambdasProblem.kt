@@ -26,7 +26,6 @@ import dev.jamiecraane.unstablelambdas.UnstableLambdaViewModel
 
 @Composable
 fun UnstableLambdasMethodRefProblem() {
-    println("Recompose UnstableLambdasMethodRefProblem")
     val viewModel: UnstableLambdaViewModel = viewModel()
 
     LaunchedEffect(key1 = null) {
@@ -43,7 +42,7 @@ fun RandomGreeting(
     onAddGreetingClicked: () -> Unit,
     onGreetingClicked: () -> Unit,
 ) {
-    println("Recompose RandomGreeting")
+    println("Recompose RandomGreeting ${onGreetingClicked.hashCode()}")
     Card(
         shape = RoundedCornerShape(10.dp),
         backgroundColor = Color.White,

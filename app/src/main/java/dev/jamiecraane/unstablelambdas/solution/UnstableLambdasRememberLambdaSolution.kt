@@ -11,7 +11,6 @@ import dev.jamiecraane.unstablelambdas.problem.RandomGreeting
 
 @Composable
 fun UnstableLambdasRememberedLambdaSolution() {
-    println("Recompose UnstableLambdasMethodRefProblem")
     val viewModel: UnstableLambdaViewModel = viewModel()
 
     LaunchedEffect(key1 = null) {
