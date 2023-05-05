@@ -61,17 +61,3 @@ fun BasicConcepts() {
         }
     }
 }
-
-@Composable
-fun Counter() {
-    var count by remember { mutableStateOf(0) }
-
-    Row {
-        Text(
-            text = "Counter: $count",
-        )
-        Button(onClick = { count++ }) {
-            Text(text = "Increment")
-        }
-    }
-}
