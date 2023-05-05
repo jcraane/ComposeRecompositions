@@ -20,7 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import dev.jamiecraane.basicconcepts.BasicConcepts
 import dev.jamiecraane.lazylist.problem.LazyListGotcha
-import dev.jamiecraane.lazylist.solution.LazyListSolution
+import dev.jamiecraane.lazylist.problem.LazyListSolution
 import dev.jamiecraane.recompositions.problem.RecompositionsProblemScreen
 import dev.jamiecraane.recompositions.solution.RecompositionsSolutionsScreen
 import dev.jamiecraane.recompositions.solution.RecompositionsSolutionsScreen2
