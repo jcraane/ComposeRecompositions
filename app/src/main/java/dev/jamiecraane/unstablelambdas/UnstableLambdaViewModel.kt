@@ -1,6 +1,9 @@
 package dev.jamiecraane.unstablelambdas
 
+import androidx.compose.runtime.MutableState
 import androidx.lifecycle.ViewModel
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 
@@ -13,12 +16,12 @@ class UnstableLambdaViewModel : ViewModel() {
         "Don't give up!"
     )
 
-    val greetings = MutableStateFlow(emptyList<String>())
+    val greetings = MutableStateFlow(emptyList<String>().toImmutableList())
 
     fun addGreeting() {
         val randomGreeting = messages.random()
         greetings.update {
-            it + randomGreeting
+            (it + randomGreeting).toImmutableList()
         }
     }
 
@@ -27,6 +30,6 @@ class UnstableLambdaViewModel : ViewModel() {
     }
 
     fun clear() {
-        greetings.value = emptyList()
+        greetings.value = emptyList<String>().toImmutableList()
     }
 }

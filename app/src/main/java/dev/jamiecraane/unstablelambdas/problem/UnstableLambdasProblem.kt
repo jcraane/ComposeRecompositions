@@ -12,6 +12,7 @@ import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -21,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import dev.jamiecraane.unstablelambdas.UnstableLambdaViewModel
+import kotlinx.collections.immutable.ImmutableList
 
 @Composable
 fun UnstableLambdasProblem() {
@@ -36,7 +38,7 @@ fun UnstableLambdasProblem() {
 
 @Composable
 fun RandomGreeting(
-    greetings: List<String>,
+    greetings: ImmutableList<String>,
     onAddGreetingClicked: () -> Unit,
     onGreetingClicked: () -> Unit,
 ) {
