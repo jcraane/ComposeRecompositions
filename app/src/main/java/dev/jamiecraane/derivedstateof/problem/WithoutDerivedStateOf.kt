@@ -26,7 +26,6 @@ import dev.jamiecraane.recompositions.problem.generateMovies
 import dev.jamiecraane.recompositions.solution.Rating
 import kotlinx.coroutines.launch
 
-
 data class MovieScreenState(
     val movies: List<Movie> = generateMovies()
 )
@@ -63,7 +62,6 @@ fun WithoutDerivedStateOf(modifier: Modifier = Modifier) {
                     Spacer(Modifier.height(4.dp))
                 }
             }
-
         }
 
         Button(
@@ -73,9 +71,9 @@ fun WithoutDerivedStateOf(modifier: Modifier = Modifier) {
                 scope.launch {
                     lazyListState.animateScrollToItem(0)
                 }
-            }) {
+            }
+        ) {
             Text("Scroll to top")
         }
-
     }
 }

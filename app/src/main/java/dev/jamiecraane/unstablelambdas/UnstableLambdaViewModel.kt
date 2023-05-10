@@ -30,7 +30,3 @@ class UnstableLambdaViewModel : ViewModel() {
         greetings.value = emptyList()
     }
 }
-
-data class GreetingState(
-    val greetings: List<String>,
-)

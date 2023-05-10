@@ -30,7 +30,8 @@ fun RecompositionsSolutionsScreen(modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
         Title(usersScreenState.title)
         Description(usersScreenState.selectedMovieTitle)
-        MovieList(usersScreenState.movieCollection
+        MovieList(
+            usersScreenState.movieCollection
         ) { movie ->
             usersScreenState = usersScreenState.copy(selectedMovieTitle = movie.title)
         }
@@ -83,4 +84,3 @@ data class MoviesScreenStateSolution(
 
 @Immutable
 data class MovieCollection(val movies: List<Movie>)
-

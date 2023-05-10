@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id("io.gitlab.arturbosch.detekt").version("1.21.0")
+    id "com.github.takahirom.decomposer"
 }
 
 android {

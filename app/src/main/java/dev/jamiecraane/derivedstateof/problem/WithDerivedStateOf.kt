@@ -6,7 +6,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import dev.jamiecraane.recompositions.solution.Rating
@@ -46,7 +45,6 @@ fun WithDerivedStateOf(modifier: Modifier = Modifier) {
                     Spacer(Modifier.height(4.dp))
                 }
             }
-
         }
 
         Button(
@@ -56,9 +54,9 @@ fun WithDerivedStateOf(modifier: Modifier = Modifier) {
                 scope.launch {
                     lazyListState.animateScrollToItem(0)
                 }
-            }) {
+            }
+        ) {
             Text("Scroll to top")
         }
-
     }
 }

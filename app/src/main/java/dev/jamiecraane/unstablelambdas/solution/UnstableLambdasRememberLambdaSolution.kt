@@ -18,8 +18,10 @@ fun UnstableLambdasRememberedLambdaSolution() {
     }
 
     val greetings by viewModel.greetings.collectAsStateWithLifecycle()
-    RandomGreeting(greetings, viewModel::addGreeting, remember {
-        { viewModel.onGreetingClicked() }
-    })
-
+    RandomGreeting(
+        greetings, viewModel::addGreeting,
+        remember {
+            { viewModel.onGreetingClicked() }
+        }
+    )
 }
