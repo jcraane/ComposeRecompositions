@@ -21,7 +21,7 @@ fun WithDerivedStateOf(modifier: Modifier = Modifier) {
     val lazyListState = rememberLazyListState()
     val scrollButtonEnabled by remember {
         derivedStateOf {
-            lazyListState.firstVisibleItemIndex > 1
+            lazyListState.firstVisibleItemIndex > 0
         }
     }
 
